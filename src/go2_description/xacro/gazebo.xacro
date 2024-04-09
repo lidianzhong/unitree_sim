@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<robot>
+
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="FL_hip_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="FL_thigh_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="FL_calf_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="FR_hip_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="FR_thigh_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="FR_calf_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RL_hip_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RL_thigh_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RL_calf_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RR_hip_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RR_thigh_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+        <joint name="RR_calf_joint">
+            <state_interface name="position"/>
+            <command_interface name="velocity"/>
+        </joint>
+      </ros2_control>
+
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+          <parameters>$(find go2_description)/config/robot_control.yaml</parameters>
+        </plugin>
+      </gazebo>
+
+    <gazebo reference="base">
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+
+    <gazebo reference="trunk">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+
+    <gazebo reference="stick_link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="imu_link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <!-- FL leg -->
+    <gazebo reference="FL_hip">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+
+    </gazebo>
+    <gazebo reference="FL_thigh">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+    <gazebo reference="FL_calf">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+    </gazebo>
+    <gazebo reference="FL_foot">
+        <mu1>0.6</mu1>
+        <mu2>0.6</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+
+    <!-- FR leg -->
+    <gazebo reference="FR_hip">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="FR_thigh">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+    <gazebo reference="FR_calf">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+    </gazebo>
+    <gazebo reference="FR_foot">
+        <mu1>0.6</mu1>
+        <mu2>0.6</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+
+    <!-- RL leg -->
+    <gazebo reference="RL_hip">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="RL_thigh">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+    <gazebo reference="RL_calf">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+    </gazebo>
+    <gazebo reference="RL_foot">
+        <mu1>0.6</mu1>
+        <mu2>0.6</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+
+    <!-- RR leg -->
+    <gazebo reference="RR_hip">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="RR_thigh">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+    <gazebo reference="RR_calf">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <self_collide>1</self_collide>
+    </gazebo>
+    <gazebo reference="RR_foot">
+        <mu1>0.6</mu1>
+        <mu2>0.6</mu2>
+        <self_collide>1</self_collide>
+        <kp  value="1000000.0"/>
+        <kd  value="1.0"/>
+    </gazebo>
+
+</robot>
