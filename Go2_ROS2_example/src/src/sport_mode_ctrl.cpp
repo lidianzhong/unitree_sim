@@ -89,8 +89,8 @@ private:
     unitree_api::msg::Request req; // Unitree Go2 ROS2 request message
     SportClient sport_req;
 
-    double t; // runing time count
-    double dt = 0.002; //control time step
+    double t;          // runing time count
+    double dt = 0.002; // control time step
 
     double px0 = 0;  // initial x position
     double py0 = 0;  // initial y position
@@ -99,10 +99,10 @@ private:
 
 int main(int argc, char *argv[])
 {
-    rclcpp::init(argc, argv); // Initialize rclcpp
+    rclcpp::init(argc, argv);            // Initialize rclcpp
     rclcpp::TimerBase::SharedPtr timer_; // Create a timer callback object to send sport request in time intervals
 
-    rclcpp::spin(std::make_shared<soprt_request>()); //Run ROS2 node
+    rclcpp::spin(std::make_shared<soprt_request>()); // Run ROS2 node
 
     rclcpp::shutdown();
     return 0;

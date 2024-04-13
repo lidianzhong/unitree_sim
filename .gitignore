@@ -2,5 +2,7 @@
 **/install
 **/log
 
+.vscode/
+
 cyclonedds_ws/src/cyclonedds/
 cyclonedds_ws/src/rmw_cyclonedds/
