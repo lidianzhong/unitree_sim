@@ -27,30 +27,35 @@ public:
 private:
     void run()
     {
+        // 机器狗站起来
         StandUpToRos1Bridge(req_ros1_bridge);
         req_ros1_bridge_puber->publish(req_ros1_bridge);
 
         std::cout << "Wait for 3 seconds to stand up..." << std::endl;
         sleep(3);
 
+        // 机器狗进入控制状态
         ReadyToRos1Bridge(req_ros1_bridge);
         req_ros1_bridge_puber->publish(req_ros1_bridge);
 
         std::cout << "Wait for 2 seconds to start..." << std::endl;
         sleep(2);
 
-        double vx = 1;   // x velocity
+        // ============== 算法部分实现 =================
+        // 下面给出了一个简单的例子，机器狗以1m/s的速度向前运动
+        double vx = 0;   // x velocity
         double vy = 1;   // y velocity
-        double vyaw = 1; // yaw velocity
+        double vyaw = 0; // yaw velocity
 
-        // Get request messages corresponding to high-level motion commands
+        // Go2 机器狗运动
         sport_req.Move(req, vx, vy, vyaw);
-        // Publish request messages
         req_puber->publish(req);
 
-        // Move robot to the bridge between ROS2 and ROS1
+        // 仿真机器狗运动
         MoveToRos1Bridge(req_ros1_bridge, vx, vy, vyaw);
         req_ros1_bridge_puber->publish(req_ros1_bridge);
+
+        // =================== END ======================
     }
 
     // Move robot to the bridge between ROS2 and ROS1
