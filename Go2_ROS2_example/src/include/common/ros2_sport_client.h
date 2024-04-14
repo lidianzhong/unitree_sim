@@ -39,6 +39,9 @@ const int32_t ROBOT_SPORT_API_ID_FRONTFLIP = 1030;
 const int32_t ROBOT_SPORT_API_ID_FRONTJUMP = 1031;
 const int32_t ROBOT_SPORT_API_ID_FRONTPOUNCE = 1032;
 
+// user specific
+const int32_t ROBOT_SPORT_API_ID_READY = 2000;
+
 typedef struct
 {
     float timeFromStart;
